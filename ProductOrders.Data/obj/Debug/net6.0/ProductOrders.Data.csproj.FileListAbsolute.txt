@@ -1,0 +1,14 @@
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\bin\Debug\net6.0\ProductOrders.Data.deps.json
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\bin\Debug\net6.0\ProductOrders.Data.runtimeconfig.json
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\bin\Debug\net6.0\ProductOrders.Data.dll
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\bin\Debug\net6.0\ProductOrders.Data.pdb
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.csproj.AssemblyReference.cache
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.AssemblyInfoInputs.cache
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.AssemblyInfo.cs
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.csproj.CoreCompileInputs.cache
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.dll
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\refint\ProductOrders.Data.dll
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.pdb
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.genruntimeconfig.cache
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ref\ProductOrders.Data.dll
