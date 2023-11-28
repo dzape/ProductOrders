@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProductOrders.BL.Repository;
+using ProductOrders.BL.Service;
 using ProductOrders.Data.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,31 +10,38 @@ namespace ProductOrders.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private IProductRepository _productRepository;
+        private readonly ProductService _productService;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(ProductService productService)
         {
-            _productRepository = productRepository;
+            _productService = productService;
         }
 
         // GET: api/<ProductController>
         [HttpGet]
         public IEnumerable<Product> GetAll()
         {
-            return _productRepository.GetAllProducts();
+            return _productService.GetAllProducts();
         }
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
         public Product Get(int id)
         {
-            return _productRepository.GetProductById(id);
+            return _productService.GetProductById(id);
         }
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<Product>> AddProduct(Product product)
         {
+            if(_productService.ProductExist(product))
+            {
+                return ValidationProblem("Product Already Exist");
+            }
+
+            await _productService.AddProduct(product);
+            return Ok(product);
         }
 
         // PUT api/<ProductController>/5
@@ -45,8 +52,14 @@ namespace ProductOrders.API.Controllers
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<Product>> Delete(Product product)
         {
+            if (_productService.DeleteProduct(product))
+            {
+                return Ok("Product Deleted");
+            }
+
+            return BadRequest();
         }
     }
 }

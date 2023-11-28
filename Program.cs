@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProductOrders.BL.Repository;
+using ProductOrders.BL.Service;
 using ProductOrders.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddDbContext<ProductOrdersContext>((options) =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ProductService, ProductService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
