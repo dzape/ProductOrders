@@ -15,3 +15,4 @@ C:\Users\pedza\source\repos\ProductOrders\ProductOrders.BL\obj\Debug\net6.0\refi
 C:\Users\pedza\source\repos\ProductOrders\ProductOrders.BL\obj\Debug\net6.0\ProductOrders.BL.pdb
 C:\Users\pedza\source\repos\ProductOrders\ProductOrders.BL\obj\Debug\net6.0\ProductOrders.BL.genruntimeconfig.cache
 C:\Users\pedza\source\repos\ProductOrders\ProductOrders.BL\obj\Debug\net6.0\ref\ProductOrders.BL.dll
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.BL\obj\Debug\net6.0\ProductOrders.BL.sourcelink.json

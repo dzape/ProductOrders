@@ -45,9 +45,15 @@ namespace ProductOrders.API.Controllers
         }
 
         // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<ActionResult<Product>> Update(Product[] products)
         {
+            if(await _productService.UpdateProduct(products[0], products[1]))
+            {
+                return Ok(products);
+            }
+
+            return BadRequest();
         }
 
         // DELETE api/<ProductController>/5

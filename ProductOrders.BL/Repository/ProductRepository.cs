@@ -26,15 +26,36 @@ namespace ProductOrders.BL.Repository
 
         public bool DeleteProduct(Product product)
         {
-            _context.Products.Remove(product);
-            _context.SaveChanges();
-            return true;
+            try
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public IEnumerable<Product> GetAllProducts()
         {
             return _context.Products;
         }
- 
+
+        public bool UpdateProduct(Product product)
+        {
+            try
+            {
+                _context.Products.Update(product);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

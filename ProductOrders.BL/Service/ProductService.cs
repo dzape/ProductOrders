@@ -41,6 +41,23 @@ namespace ProductOrders.BL.Service
             return match != null ? true : false;
         }
 
+        public async Task<bool> UpdateProduct(Product oldProduct, Product updatedProduct)
+        {
+            var product = GetAllProducts().FirstOrDefault((produc) =>
+                produc.Name == oldProduct.Name && produc.Price == oldProduct.Price && produc.Manufacturer == oldProduct.Manufacturer
+            );
+
+            if (product != null)
+            {
+                product.Name = updatedProduct.Name;
+                product.Price = updatedProduct.Price;
+                product.Manufacturer = updatedProduct.Manufacturer;
+                return _productRepository.UpdateProduct(product);
+            }
+
+            return false;
+        }
+
         public bool DeleteProduct(Product product)
         {
             return _productRepository.DeleteProduct(product);
