@@ -42,19 +42,6 @@ namespace ProductOrders.Data
                 entity.Property(e => e.OrderDate).HasColumnType("date");
             });
 
-            modelBuilder.Entity<OrderDetail>(entity =>
-            {
-                entity.ToTable("OrderDetails", "dbo");
-
-                entity.Property(e => e.Quantity).HasDefaultValueSql("((1))");
-
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.OrderDetails)
-                    .HasForeignKey(d => d.OrderId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__OrderDeta__Order__3C69FB99");
-
-            });
 
             modelBuilder.Entity<Product>(entity =>
             {

@@ -12,3 +12,4 @@ C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\re
 C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.pdb
 C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.genruntimeconfig.cache
 C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ref\ProductOrders.Data.dll
+C:\Users\pedza\source\repos\ProductOrders\ProductOrders.Data\obj\Debug\net6.0\ProductOrders.Data.sourcelink.json

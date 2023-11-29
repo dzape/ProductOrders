@@ -1,10 +1,5 @@
 ﻿using ProductOrders.BL.Repository;
 using ProductOrders.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductOrders.BL.Service
 {
@@ -30,6 +25,15 @@ namespace ProductOrders.BL.Service
         public async Task<Product> AddProduct(Product product)
         {
             return await _productRepository.AddProduct(product);
+        }
+
+        public Product GetProduct(Product product)
+        {
+            return GetAllProducts().FirstOrDefault((obj) =>
+                        obj.Name == product.Name &&
+                        obj.Price == product.Price &&
+                        obj.Manufacturer == product.Manufacturer
+                    );
         }
 
         public bool ProductExist(Product product)
