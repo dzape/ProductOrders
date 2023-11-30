@@ -1,0 +1,13 @@
+<div class="table-container">
+  @for(item of Orders; track item) {
+  <div class="table-row">
+    <span>{{ item.fullName }}</span> <span>{{ item.contact }}</span>
+    <span>{{ item.address }}</span> <span>{{ item.orderDate | date: 'dd/MM/yyyy' }}</span>
+    @if(item.orderDetails) {
+        @for(orderDetail of item.orderDetails; track orderDetail) {
+            <span>{{orderDetail.product.name}} -- {{orderDetail.quantity}}</span>
+        }
+    }
+  </div>
+  }
+</div>

@@ -24,7 +24,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
       <div class="form-container">
         <mat-form-field class="example-full-width">
           <mat-label>Full Name</mat-label>
-          <input matInput [(ngModel)]="order.fullname" placeholder="Pero" />
+          <input matInput [(ngModel)]="order.fullName" placeholder="Pero" />
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Contact info email / phone</mat-label>
@@ -64,12 +64,12 @@ export class OrderComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { products: Product[]; httpClient: HttpClient },
-    private dialogRef: MatDialogRef<OrderComponent>,
-    private snackBar: MatSnackBar
+    private dialogRef: MatDialogRef<OrderComponent>
   ) {}
 
   confirm() {
     this.data.products.forEach((obj) => {
+      this.order.orderDate = new Date();
       this.order.orderDetails.push({
         quantity: obj.quantity,
         product: {
@@ -84,14 +84,9 @@ export class OrderComponent {
         .pipe(take(1))
         .subscribe((response) => {
           if (response) {
-            this.snackBar.open('Order created', undefined, { duration: 3000 });
+            this.dialogRef.close('Order-Created');
           }
-
-          console.log(response);
         });
     });
-
-    console.log(this.order);
-    this.dialogRef.close();
   }
 }

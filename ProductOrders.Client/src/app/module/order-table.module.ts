@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { MateralModule } from './material.module';
-import { OrderComponent } from '../components/order.component';
 import { OrderTableComponent } from '../components/orders-table/orders-table.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
-  declarations: [OrderComponent],
-  imports: [MateralModule],
-  exports: [OrderComponent],
+  declarations: [OrderTableComponent],
+  imports: [MateralModule, DatePipe],
+  exports: [OrderTableComponent],
 })
-export class OrdrerModule {}
+export class OrderTableModule {}

@@ -40,6 +40,11 @@ export class HttpInterceptorService implements HttpInterceptor {
           resolve(error);
           break;
 
+        case StatusCodesEnum.TooManyRequests:
+          console.error('Too many requests.');
+          resolve(error);
+          break;
+
         default:
           console.log('Interceptor request error' + JSON.stringify(error));
           resolve(error);
@@ -52,7 +57,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     return request.clone({
       setHeaders: {
         'API-VERSION': '1',
-        'accept': 'text/plain',
+        accept: 'text/plain',
         'Content-Type': 'application/json',
       },
     });

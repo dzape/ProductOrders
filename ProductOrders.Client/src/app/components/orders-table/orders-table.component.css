@@ -1,0 +1,17 @@
+.table-container {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.table-row {
+  display: inline-flex;
+  gap: 10px;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+}
+
+.table-row > span {
+  min-width: 11rem;
+  font-size: 14px;
+}

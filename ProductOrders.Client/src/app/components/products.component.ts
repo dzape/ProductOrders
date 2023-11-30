@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product.model';
 import { UrlResolver } from '../config/url-resolver';
 import { take } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderComponent } from './order.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -39,6 +40,7 @@ import { OrderComponent } from './order.component';
         <button
           mat-raised-button
           color="primary"
+          [disabled]="productsList.selectedOptions.selected.length == 0"
           (click)="order(selectedProducts)"
         >
           Order
@@ -91,10 +93,13 @@ import { OrderComponent } from './order.component';
 })
 export class ProductsComponent implements OnInit {
   selectedProducts: any;
-
   products: Product[] = new Array<Product>();
 
-  constructor(private httpClient: HttpClient, private dialog: MatDialog) {}
+  constructor(
+    private httpClient: HttpClient,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.httpClient
@@ -106,52 +111,19 @@ export class ProductsComponent implements OnInit {
   }
 
   order(list: any) {
-    console.log(list);
-
     const dialogRef = this.dialog.open(OrderComponent, {
       data: {
         products: list,
-        httpClient : this.httpClient
+        httpClient: this.httpClient,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result == 'Order-OK') {
-        console.log('New order created.');
+      if (result == 'Order-Created') {
+        this.snackBar.open('Order created', undefined, { duration: 3000 });
+        this.selectedProducts = [];
+        this.products = new Array<Product>();
       }
     });
   }
 }
-
-//     "orderId": 6,
-//     "fullName": "Anix",
-//     "contact": "anix@gmail.com",
-//     "address": "levo",
-//     "orderDate": "2023-11-29T00:00:00",
-//     "orderDetails": [
-//       {
-//         "orderDetailId": 7,
-//         "productId": 7,
-//         "orderId": 6,
-//         "quantity": 5,
-//         "product": {
-//           "productId": 7,
-//           "name": "Ball",
-//           "price": 100,
-//           "manufacturer": "Nike"
-//         }
-//       },
-//       {
-//         "orderDetailId": 8,
-//         "productId": 1,
-//         "orderId": 6,
-//         "quantity": 2,
-//         "product": {
-//           "productId": 1,
-//           "name": "Ball",
-//           "price": 100,
-//           "manufacturer": "Spalding"
-//         }
-//       }
-//     ]
-//   }

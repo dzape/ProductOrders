@@ -1,10 +1,10 @@
 import { OrderDetail } from './order-detail.model';
 
 export class Order {
-  fullname: string = '';
+  fullName: string = '';
   contact: string = '';
   address: string = '';
-  date: Date = new Date();
+  orderDate: Date = new Date();
   orderDetails: OrderDetail[] = [];
 
   constructor(init?: Partial<Order>) {
