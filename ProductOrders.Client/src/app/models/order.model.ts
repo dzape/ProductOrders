@@ -1,11 +1,13 @@
-export class Order {
-    id: number;
-    name: string;
-    contact: string;
-    address: string;
-    date: Date;
+import { OrderDetail } from './order-detail.model';
 
-    constructor(init?: Partial<Order>) {
-        Object.assign(this, init);
-    }
+export class Order {
+  fullname: string = '';
+  contact: string = '';
+  address: string = '';
+  date: Date = new Date();
+  orderDetails: OrderDetail[] = [];
+
+  constructor(init?: Partial<Order>) {
+    Object.assign(this, init);
+  }
 }

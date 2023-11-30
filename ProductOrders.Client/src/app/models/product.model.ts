@@ -1,8 +1,8 @@
 export class Product {
-    id: number = 0;
     name: string = "";
     price: string = "";
     manufacturer: string = "";
+    quantity?: number = 1;
 
     constructor(init?: Partial<Product>) {
         Object.assign(this, init);

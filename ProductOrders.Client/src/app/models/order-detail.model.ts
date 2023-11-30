@@ -1,13 +1,10 @@
-import { Product } from "./product.model";
+import { Product } from './product.model';
 
 export class OrderDetail {
-    id: number;
-    productId: number;
-    orderId: number;
-    quantity: number;
-    product: Product[];
+  quantity: number| undefined = 0;
+  product: Product = new Product();
 
-    constructor(init?: Partial<OrderDetail>) {
-        Object.assign(this, init);
-    }
+  constructor(init?: Partial<OrderDetail>) {
+    Object.assign(this, init);
+  }
 }

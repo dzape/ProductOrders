@@ -4,4 +4,6 @@ export class UrlResolver {
 
     static products = `${this.url}/api/Product`
 
+    static orders = `${this.url}/api/Order`
+
 }
