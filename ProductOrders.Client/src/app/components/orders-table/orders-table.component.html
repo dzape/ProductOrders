@@ -1,13 +1,46 @@
-<div class="table-container">
-  @for(item of Orders; track item) {
-  <div class="table-row">
-    <span>{{ item.fullName }}</span> <span>{{ item.contact }}</span>
-    <span>{{ item.address }}</span> <span>{{ item.orderDate | date: 'dd/MM/yyyy' }}</span>
-    @if(item.orderDetails) {
-        @for(orderDetail of item.orderDetails; track orderDetail) {
-            <span>{{orderDetail.product.name}} -- {{orderDetail.quantity}}</span>
-        }
+<div class="order-table-container">
+  <div class="filter-container">
+    <mat-form-field class="example-full-width">
+      <mat-label>Customer Name</mat-label>
+      <input matInput [(ngModel)]="filterObject.searchString" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Product Name</mat-label>
+      <input matInput [(ngModel)]="filterObject.product" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        [(ngModel)]="filterObject.date"
+        [matDatepicker]="picker"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="table-header">
+    <div class="table-row">
+      <span>Customer Name</span> <span> Customer Contact </span>
+      <span>Customer Address</span>
+      <span>Order Date</span>
+    </div>
+
+    @for(item of Orders | filterOrders : filterObject; track item) {
+    <div class="table-row">
+      <span>{{ item.fullName }}</span> <span>{{ item.contact }}</span>
+      <span>{{ item.address }}</span>
+      <span>{{ item.orderDate | date : "dd/MM/yyyy" }}</span>
+      @if(item.orderDetails) { @for(orderDetail of item.orderDetails; track
+      orderDetail) {
+      <span>{{ orderDetail.product.name }} -- {{ orderDetail.quantity }}</span>
+      } }
+    </div>
     }
   </div>
-  }
 </div>

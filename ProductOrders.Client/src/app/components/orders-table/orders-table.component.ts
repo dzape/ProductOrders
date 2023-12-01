@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { UrlResolver } from '../../config/url-resolver';
 import { Order } from '../../models/order.model';
+import { FilterObject } from '../../models/filter.model';
 
 @Component({
   selector: 'app-order-table',
@@ -16,6 +17,7 @@ export class OrderTableComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
   Orders: Order[] = new Array<Order>();
+  filterObject: FilterObject = new FilterObject();
 
   ngOnInit(): void {
     this.httpClient
@@ -26,7 +28,4 @@ export class OrderTableComponent implements OnInit {
         console.warn(arr);
       });
   }
-
-  
-
 }
